@@ -1,3 +1,33 @@
 .color-title {
   margin-top: 2rem;
 }
+
+.sidebar-label-container:hover .checkmark {
+  background-color: #ccc;
+}
+
+.sidebar-label-container input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  top: 6.4px;
+  left: 6.4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: white;
+  visibility: hidden;
+  border: 1px solid #dcdcdc;  
+}
+
+.sidebar-label-container input:checked ~ .checkmark:after {
+  visibility: visible;
+}
+
+.line {
+  margin-top: 3rem;
+  border-color: #f7f7f7;
+}

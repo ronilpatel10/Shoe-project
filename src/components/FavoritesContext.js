@@ -10,18 +10,18 @@ export const useFavorites = () => {
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
-  const addToFavorites = (title) => {
-    if (!isFavorite(title)) {
-      setFavorites([...favorites, title]);
+  const addToFavorites = (shoe) => {
+    if (!isFavorite(shoe.title)) {
+      setFavorites([...favorites, shoe]);
     }
   };
 
   const removeFromFavorites = (title) => {
-    setFavorites(favorites.filter((fav) => fav !== title));
+    setFavorites(favorites.filter((fav) => fav.title !== title));
   };
 
   const isFavorite = (title) => {
-    return favorites.includes(title);
+    return favorites.some((fav) => fav.title === title);
   };
 
   const value = {

@@ -1,26 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; /* Introducing the Roboto font for a modern feel */
+}
+
+body {
+    background-color: #f4f4f4; /* A subtle background color */
+    color: #333; /* Default text color */
 }
 
 a {
-  text-decoration: none;
-  color: rgb(97, 97, 97);
+    text-decoration: none;
+    color: #555; /* Slightly darkened link color */
+    font-size: 20px;
+    padding: 10px;
+    transition: color 0.3s ease-in-out; /* Transition effect for link hover */
+    font-family: 'circular';
+}
+
+a:hover {
+    color: #2196f3; /* Color when hovered over a link */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically in the center */
+    padding: 15px 20px; /* Adding some padding to the navigation container */
+    background-color: #fff; /* White background for the navigation bar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Slight shadow to give depth */
 }
 
 li {
-  list-style: none;
+    list-style: none;
 }
 
 .btns {
-  padding: 10px 20px;
-  margin-right: 6px;
-  background: transparent;
-  border: none;
-  border: 0.6px solid #ccc;
-  border-radius: 5px;
-  color: #323232;
-  cursor: pointer;
+    padding: 10px 20px;
+    margin-right: 6px;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #323232;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /* Transition effect for button hover */
+}
+
+.btns:hover {
+    background: #2196f3; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+    border-color: #2196f3; /* Change border color on hover */
 }

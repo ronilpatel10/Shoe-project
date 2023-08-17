@@ -1,18 +1,22 @@
+// Card.jsx
+import './Card.css';
+
 import { useState } from "react";
-import { BsFillBagFill } from "react-icons/bs";
+
 import { useFavorites } from "./FavoritesContext"; 
 
-const Card = ({ img, title, star, reviews, StockxPrice, GOAT_Price }) => {
+const Card = ({ img, title, star, reviews, StockxPrice, StockxLink, GOAT_Price, GOATLink }) => {
+  console.log(StockxLink);
   const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites();
-  const [toggleFav, setToggleFav] = useState(false)
+  const [toggleFav, setToggleFav] = useState(isFavorite(title))
 
-  function remove(title) {
+  function remove() {
     removeFromFavorites(title)
     setToggleFav(false)
   }
 
-  function add(title) {
-    addToFavorites(title)
+  function add() {
+    addToFavorites({ img, title, star, reviews, StockxPrice, GOAT_Price, GOATLink});
     setToggleFav(true)
   }
 
@@ -28,19 +32,20 @@ const Card = ({ img, title, star, reviews, StockxPrice, GOAT_Price }) => {
           </section>
           <section className="card-price">
             <div className="price">
-              <p>{StockxPrice}</p> {GOAT_Price}
+            <a href={StockxLink} target="_blank" rel="noopener noreferrer"><p>{StockxPrice}</p></a>
+            <a href={GOATLink} target="_blank" rel="noopener noreferrer"><p>{GOAT_Price}</p></a>             
               {toggleFav ? (
-                <button onClick={() => remove(title)}>
-                  Remove From Favorites ❤️
+                <button onClick={remove}>
+                  Remove From Favorites ❌
                 </button>
               ) : (
-                <button onClick={() => add(title)}>
+                <button onClick={add}>
                   Add To Favorites ⭐️
                 </button>
               )}
             </div>
-            <div className="bag">
-              <BsFillBagFill className="bag-icon" />
+            <div className="">
+             
             </div>
           </section>
         </div>

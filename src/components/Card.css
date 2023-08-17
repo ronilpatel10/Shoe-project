@@ -1,0 +1,96 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 250px; /* Adjust this as needed */
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-img {
+    width: 80%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: auto;
+  }
+  
+  .card-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .card-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .card-reviews {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .total-reviews {
+    margin-left: 10px;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .card-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .bag {
+    display: flex;
+    align-items: center;
+  }
+  
+  .bag-icon {
+    font-size: 24px; /* Adjust this size as needed */
+    color: #535353;
+    transition: color 0.3s ease;
+  }
+  
+  .bag-icon:hover {
+    color: #d5ab55; /* Matching the star rating color on hover */
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196f3;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #1976d2;
+  }
+  .a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  } 
+  

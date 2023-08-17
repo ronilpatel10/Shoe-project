@@ -1,6 +1,5 @@
 nav {
   display: flex;
-  border-bottom: 2px solid #f3f3f3;
   justify-content: space-around;
   align-items: center;
   padding: 20px;
@@ -24,3 +23,5 @@ input {
   height: 1.5rem;
   margin-left: 2rem;
 }
+/* Your existing styles here */
+

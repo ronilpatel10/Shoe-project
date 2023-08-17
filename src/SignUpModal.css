@@ -1,0 +1,32 @@
+/* SignUpModal.css */
+.modal-container {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%); /* Centering the modal horizontally */
+    width: 400px; /* Adjust width as needed */
+    background-color: white; /* Base background color */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners like the logo */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    z-index: 1000;
+}
+
+.close-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196f3;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    float: right; /* Position the close button to the right */
+}
+
+.close-button:hover {
+    background-color: #1976d2;
+}
+
+.close-button:active {
+    transform: scale(0.95);
+}

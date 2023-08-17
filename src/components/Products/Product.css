@@ -11,24 +11,35 @@
   border: 2px solid #ededed;
   padding: 20px;
   cursor: pointer;
+  border-radius: 10px; /* Rounded corners for a modern look */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effect for hover */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarges the card */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Adds shadow for a lifted effect */
 }
 
 .card-img {
   width: 13rem;
   margin-bottom: 1rem;
+  border-radius: 5px; /* Rounded corners for the image */
 }
 
 .card-title {
   margin-bottom: 1rem;
+  font-weight: 600; /* Bold title */
 }
 
 .card-reviews {
   margin-bottom: 1rem;
   display: flex;
+  align-items: center; /* Aligns star and review count vertically */
 }
 
 .rating-star {
   color: #d5ab55;
+  font-size: 1.2rem; /* Slightly bigger star for emphasis */
 }
 
 .total-reviews {
@@ -44,4 +55,9 @@
 
 .bag-icon {
   color: #535353;
+  transition: color 0.3s ease; /* Transition effect for hover */
+}
+
+.bag-icon:hover {
+  color: #d5ab55; /* Change color to match the star rating */
 }

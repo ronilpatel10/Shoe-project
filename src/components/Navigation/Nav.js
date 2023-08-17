@@ -1,11 +1,18 @@
-import React from "react";
-import { FiHeart } from "react-icons/fi";
-import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import "./Nav.css";
+import React, {useContext} from "react";
 
-const Nav = ({ handleInputChange, query, favorites }) => {
+import { AiOutlineUserAdd } from "react-icons/ai";
+import Links from "../Links";
+import "./Nav.css";
+import { UserContext } from "../../UserContext";
+import logo from '../../142879091 3.jpg'; 
+
+
+
+const Nav = ({ handleInputChange, query, favorites, onSignUpClick, signedUpUser }) => {
+  <img src={logo} alt="ShoeScope Logo" className="logo" />
+
   return (
+    
     <nav>
       <div className="nav-container">
         <input
@@ -13,21 +20,20 @@ const Nav = ({ handleInputChange, query, favorites }) => {
           type="text"
           onChange={handleInputChange}
           value={query}
-          placeholder="Enter your search shoes."
+          placeholder="Enter your search shoes👟"
         />
       </div>
-      <div className="profile-container">
-          <Link to="/">Home🏠</Link>
-        <Link to="/NewShoeForm">New👟?!</Link>
-        <Link to="/about">About🧐</Link>
-        <Link to="/favorites"> <FiHeart className="nav-icons" /> </Link>
-        <a href="">
-          <AiOutlineShoppingCart className="nav-icons" />
-        </a>
-        <a href="">
+      <Links/>
+
+      
+   
+        <a href="#" onClick={(e) => {
+            e.preventDefault();  
+            onSignUpClick();
+        }}>
           <AiOutlineUserAdd className="nav-icons" />
         </a>
-      </div>
+        {/* {signedUpUser && <div>Welcome, {signedUpUser}!</div>} */}
     </nav>
   );
 };

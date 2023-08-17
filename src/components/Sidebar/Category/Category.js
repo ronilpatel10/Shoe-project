@@ -1,6 +1,7 @@
 import "./Category.css";
 import Input from "../Input";
 
+
 function Category({ handleChange }) {
   return (
     <div>
