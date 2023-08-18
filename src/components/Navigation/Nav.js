@@ -9,10 +9,9 @@ import logo from '../../142879091 3.jpg';
 
 
 const Nav = ({ handleInputChange, query, favorites, onSignUpClick, signedUpUser }) => {
-  <img src={logo} alt="ShoeScope Logo" className="logo" />
-
+  
   return (
-    
+    <>
     <nav>
       <div className="nav-container">
         <input
@@ -21,20 +20,22 @@ const Nav = ({ handleInputChange, query, favorites, onSignUpClick, signedUpUser 
           onChange={handleInputChange}
           value={query}
           placeholder="Enter your search shoes👟"
-        />
+          />
       </div>
       <Links/>
 
       
    
         <a href="#" onClick={(e) => {
-            e.preventDefault();  
-            onSignUpClick();
+          e.preventDefault();  
+          onSignUpClick();
         }}>
           <AiOutlineUserAdd className="nav-icons" />
         </a>
         {/* {signedUpUser && <div>Welcome, {signedUpUser}!</div>} */}
+    {/* <img src={logo} alt="ShoeScope Logo" className="logo" /> */}
     </nav>
+          </>
   );
 };
 

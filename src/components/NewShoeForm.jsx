@@ -88,10 +88,17 @@ function AddShoeForm() {
     setCurrentComments(prevComments => prevComments.filter((_, index) => index !== indexToRemove));
   };
 
+  const handleCommentDelete = (shoeIndex, commentIndex) => {
+    const newShoes = [...shoes];
+    newShoes[shoeIndex].comments.splice(commentIndex, 1);
+    setShoes(newShoes);
+  };
   const handleCommentSubmit = (index) => {
     const newShoes = [...shoes];
+    const commentWithUser = `${signedUpUser}: ${currentComments[index]}`; 
     newShoes[index].comments.push(currentComments[index]);
     setShoes(newShoes);
+
 
     // Reset the comment for this shoe
     const newComments = [...currentComments];
@@ -106,7 +113,7 @@ function AddShoeForm() {
   return (
     <div className="add-shoe-form">
       <Links/>  {signedUpUser && <div>Welcome, {signedUpUser}!</div>} 
-      <h1>Add a New Shoe🔥</h1>
+      <h1>ShoeScope🔥</h1>
       <h3>Show off your custom built shoes!</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Shoe Name:</label>
@@ -162,22 +169,25 @@ function AddShoeForm() {
             <button onClick={() => handleRemove(index)}>Remove ❌</button>
             
             <div className="comments">
-              <strong>Comments</strong>
-              {shoe.comments.map((comment, cIndex) => (
-                <p key={cIndex}>{comment}</p>
-              ))}
-              <input 
-                type="text"
-                value={currentComments[index]}
-                onChange={e => {
-                  const newComments = [...currentComments];
-                  newComments[index] = e.target.value;
-                  setCurrentComments(newComments);
-                }}
-                placeholder="Type a comment"
-              />
-              <button onClick={() => handleCommentSubmit(index)}>Add Comment</button>
-            </div>
+  <strong>Comments</strong>
+  {shoe.comments.map((comment, cIndex) => (
+    <div key={cIndex} style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <p>{comment}</p>
+      <button onClick={() => handleCommentDelete(index, cIndex)}>Delete</button>
+    </div>
+  ))}
+  <input 
+    type="text"
+    value={currentComments[index]}
+    onChange={e => {
+      const newComments = [...currentComments];
+      newComments[index] = e.target.value;
+      setCurrentComments(newComments);
+    }}
+    placeholder="Type a comment"
+  />
+  <button onClick={() => handleCommentSubmit(index)}>Add Comment</button>
+</div>
           </div>
         ))}
       </div>

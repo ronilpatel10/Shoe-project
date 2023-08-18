@@ -8,7 +8,6 @@ import { FavoritesProvider } from "./components/FavoritesContext";
 import NewShoeForm from "./components/NewShoeForm";
 import SignUp from './SignUp'; 
 import ErrorPage from "./ErrorPage";
-import Navigation from "./components/Navigation/Nav"; 
 import { UserContext } from "./UserContext";
 import { useState } from "react";
 
