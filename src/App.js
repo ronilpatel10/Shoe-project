@@ -18,6 +18,7 @@ function App() {
   const storedUsername = localStorage.getItem('username');
   const [signedUpUser, setSignedUpUser] = useState(storedUsername || null);
   const [isLoggedIn, setIsLoggedIn] = useState(!!storedUsername);  
+  const [isLightMode, setIsLightMode] = useState(true); // Set initial state to true
 
   useEffect(() => {
     if (signedUpUser) {
@@ -25,8 +26,15 @@ function App() {
     } else {
       localStorage.removeItem('username');
     }
-}, [signedUpUser]);
+  }, [signedUpUser]);
 
+  useEffect(() => {
+    if (isLightMode) {
+      document.body.classList.remove('dark'); // Remove 'dark' class for light mode
+    } else {
+      document.body.classList.add('dark'); // Add 'dark' class for dark mode
+    }
+  }, [isLightMode]);
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
@@ -43,7 +51,6 @@ function App() {
   const handleClick = (event) => {
     setSelectedCategory(event.target.value);
   };
-  
 
   const handleLogout = () => {
     setSignedUpUser(null);
@@ -67,7 +74,6 @@ function App() {
           title === selected
       );
     }
-
     return filteredProducts.map(
       ({ img, title, star, reviews, StockxPrice, GOAT_Price, StockxLink, GOATLink }) => (
         <Card
@@ -84,11 +90,15 @@ function App() {
       )
     );
   }
-
+  
   const result = filteredData(products, selectedCategory, query);
 
   return (
     <>
+      <div className={`App ${isLightMode ? 'light-mode' : 'dark'}`}>
+        {/* ... rest of your components ... */}
+      </div>
+
       {signedUpUser && <div>Welcome, {signedUpUser}!</div>}
       {isLoggedIn && <button onClick={handleLogout}>Logout</button>} 
       <Sidebar handleChange={handleChange} />
@@ -98,10 +108,23 @@ function App() {
       <Outlet />
         
       <div style={{ position: 'fixed', right: '20px', bottom: '20px', zIndex: 100 }}>
-        <AiOutlineUserAdd className="nav-icons" onClick={() => {
-          console.log("Icon clicked");
-          setIsSignUpModalOpen(true);
-        }} />
+        <div className="switch">
+          <input
+            type="checkbox"
+            id="modeToggle"
+            className="input"
+            checked={!isLightMode}
+            onChange={() => setIsLightMode(prevMode => !prevMode)}
+          />
+          <label className="slider" htmlFor="modeToggle">
+            <div className="sun">
+              <svg>...</svg>
+            </div>
+            <div className="moon">
+              <svg>...</svg>
+            </div>
+          </label>
+        </div>
       </div>
 
       <SignUpModal 
