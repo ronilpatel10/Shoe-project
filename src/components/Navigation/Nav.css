@@ -1,3 +1,13 @@
+.dark nav {
+  background-color: #444;
+}
+
+.dark input {
+  background-color: #555;
+  color: #f4f4f4;
+  border-color: #555;
+}
+
 nav {
   display: flex;
   justify-content: space-around;

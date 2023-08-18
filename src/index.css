@@ -121,9 +121,26 @@ body, .App {
 }
 
 /* Dark mode styles */
+/* Dark mode styles */
 body.dark, .dark.App {
   background-color: #333;
   color: #f4f4f4;
+}
+
+body.dark a, .dark a {
+  color: #a1dafb; /* Adjust link color for dark mode */
+}
+
+body.dark .btns, .dark .btns {
+  background-color: #555;
+  color: #f4f4f4;
+  border-color: #555;
+}
+
+body.dark .btns:hover, .dark .btns:hover {
+  background-color: #2196f3;
+  color: #fff;
+  border-color: #2196f3;
 }
 
 

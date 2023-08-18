@@ -1,3 +1,8 @@
+.dark .card {
+    background-color: #444;
+    color: #f4f4f4;
+  }
+  
 .card {
     display: flex;
     flex-direction: column;
